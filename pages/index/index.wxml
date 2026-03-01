@@ -1,0 +1,69 @@
+<view class="page-container">
+  
+  <view class="search-section">
+    <view class="search-input-wrapper">
+      <icon type="search" size="14" color="#999" style="margin-right:10rpx;"></icon>
+      <input 
+        class="search-input"
+        placeholder="探索高质量壁纸..."
+        value="{{searchText}}"
+        bindinput="handleSearchInput"
+      />
+    </view>
+    <button class="search-button" bindtap="onTapSearch">搜索</button>
+  </view>
+
+  <swiper class="swiper-container" indicator-dots autoplay circular indicator-active-color="#ffffff">
+    <block wx:for="{{swiperList}}" wx:key="id">
+      <swiper-item>
+        <view class="swiper-ad-item" style="background-color: {{item.color}};">
+          <text class="swiper-ad-text">{{item.text}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+  <view class="king-kong-section">
+    <view class="king-kong-grid">
+      <view class="king-kong-item" wx:for="{{kingKongList}}" wx:key="name" bind:tap="onKingKongItemTap" data-item="{{item}}">
+        <image class="king-kong-icon" src="{{item.icon}}" mode="aspectFit"></image>
+        <text class="king-kong-text">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="waterfall-container">
+    <view class="column">
+      <block wx:for="{{leftList}}" wx:key="id">
+        <view class="waterfall-item" style="height: {{item.displayHeight}}rpx;" bind:tap="onWallpaperTap" data-full="{{item.full}}">
+          <image 
+            src="{{item.thumb}}" 
+            class="item-image"
+            mode="aspectFill"
+            lazy-load="true"
+          />
+        </view>
+      </block>
+    </view>
+
+    <view class="column">
+      <block wx:for="{{rightList}}" wx:key="id">
+        <view class="waterfall-item" style="height: {{item.displayHeight}}rpx;" bind:tap="onWallpaperTap" data-full="{{item.full}}">
+          <image 
+            src="{{item.thumb}}" 
+            class="item-image"
+            mode="aspectFill"
+            lazy-load="true"
+          />
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+  <!-- 新增回到顶部 -->
+  <view class="back-top-btn" wx:if="{{showBackTop}}" bindtap="onBackTop">
+    <image src="/assets/icons/common/回到顶部.png" class="back-top-icon"></image>
+  </view>
+</view>

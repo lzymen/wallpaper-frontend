@@ -1,0 +1,25 @@
+# --- 微信小程序特有 ---
+# 个人私密配置文件（包含你的 AppID、本地开发者工具设置等）
+# 这个文件绝对不能上传，否则别人下载后会覆盖掉他们的本地设置
+project.private.config.json
+project.config.json
+
+# 云函数依赖（如果是云开发项目）
+node_modules/
+miniprogram_npm/
+
+# --- 编译与临时文件 ---
+dist/
+unpackage/
+.temp/
+dev/
+
+# --- 系统与编辑器 ---
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# --- 证书与密钥 ---
+*.key
+*.pem
